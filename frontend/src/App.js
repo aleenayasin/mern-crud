@@ -25,7 +25,7 @@ function App() {
   // functions
   const fetchNotes = async () =>{
     // Fetch th notes
-    const res = await axios.get('http://localhost:3000/notes')
+    const res = await axios.get('https://mern-crud-bxg4.onrender.com/notes')
      // set to state
      setNotes(res.data.notes)
   };
@@ -44,7 +44,7 @@ function App() {
     e.preventDefault();
 
     // Create the note
-    const res = await axios.post("http://localhost:3000/notes", createForm)
+    const res = await axios.post("https://mern-crud-bxg4.onrender.com/notes", createForm)
 
     // Update state
     setNotes([...notes, res.data.note]);
@@ -56,7 +56,7 @@ function App() {
 
   const deleteNote =async (_id) => {
     // delete note
-   const res = await axios.delete(`http://localhost:3000/notes/${_id}`);
+   const res = await axios.delete(`https://mern-crud-bxg4.onrender.com/notes/${_id}`);
    console.log(res)
 
     // update state
@@ -85,7 +85,7 @@ setNotes(newNotes);
 
     const { title, body} = updateForm;
     // send the update request
-   const res = await axios.put(`http://localhost:3000/notes/${updateForm._id}`, {title,body})
+   const res = await axios.put(`https://mern-crud-bxg4.onrender.com/notes/${updateForm._id}`, {title,body})
 
     // update state
     const newNotes = [...notes];
